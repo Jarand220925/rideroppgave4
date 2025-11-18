@@ -1,0 +1,33 @@
+﻿Plan:
+Tenkte først jeg skulle bruke Magickort til denne oppgaven, men valgte Lego istedet.
+Lage modeller basert på Legosett og "Legotheme". Modellene blir laget med StreamReader og en statisk Liste- og modell-generatorklasse. 
+
+Pseudokode:
+
+static void Main(string[] args) 
+    {
+        Ny Reader mainReader; // leser inn csv-filer og kan lage objekter basert på hver linje som leses inn.
+        
+        mainReader.MakeList(string path, Action<> function); // Tar inn filplassering og funksjon. Lager listen.
+        
+        var input = Console.ReadLine(); //Leser inn en streng som brukes i switchen.
+                switch (input) // Ifra input blir kommandoene skrevet i terminalen kjørt.
+                {
+                    case "renons" :
+                        Console.WriteLine("Jeg er renons");
+                        break;
+                    case "showthemes":
+                        break;
+                    //Tar ut en egenskap fra hvert objekt i LegoSetsList, lager en ny liste med egenskaper, og skriver ut alt fra den nye listen i terminalen.
+                    case "select":
+                        List<string> names = LegoSetListClass.LegoSetsList.Select(LegoSet => LegoSet.name).ToList();
+                        names.ForEach(LegoSet => Console.WriteLine(LegoSet));
+                        break;
+                    //Plukker ut alle LegoSet som fyller kriteriene og legger dem i en egen liste.
+                    //Skriver ut alle LegoSet fra ny liste.
+                    case "where":
+                        List<LegoSet> wherelist = LegoSetListClass.LegoSetsList.Where(LegoSet => LegoSet.year < 2000 & LegoSet.year != 0).ToList();
+                        wherelist.ForEach(LegoSet => Console.WriteLine(LegoSet));
+                        break;
+                }
+    }

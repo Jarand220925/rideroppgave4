@@ -2,5 +2,5 @@
 
 public class frukt
 {
-    
+    string cola = "cola";
 }

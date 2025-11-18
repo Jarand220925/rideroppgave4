@@ -1,3 +1,6 @@
 ﻿namespace rideroppgave4.models.records;
 
-public record MagicCard();
+public record MagicCard()
+{
+    
+}
